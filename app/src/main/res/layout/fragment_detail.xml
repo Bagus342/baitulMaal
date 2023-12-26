@@ -9,14 +9,16 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
+        android:paddingVertical="20sp"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:background="@color/primary"
         >
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
+            style="@style/RoundedTabLayoutStyle"
             app:tabMode="fixed"
             app:tabGravity="fill"
             />

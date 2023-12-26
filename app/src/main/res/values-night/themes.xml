@@ -4,16 +4,20 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary</item>
-        <item name="colorOnPrimary">#c2c4c3</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">#c2c4c3</item>
+        <item name="colorSecondary">@color/primary</item>
+        <item name="colorSecondaryVariant">@color/primary</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="bottomSheetDialogTheme">@style/AppBottomDialogTheme</item>
+        <item name="bottomAppBarStyle">@style/AppBottomStyle</item>
+    </style>
 
+    <style name="AppBottomStyle" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="android:backgroundTint">@color/white</item>
     </style>
 
     <style name="AppBottomDialogTheme" parent="Theme.Design.BottomSheetDialog">
@@ -22,6 +26,13 @@
     
     <style name="AppModelStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/dialog_sheet</item>
-        <item name="behavior_peekHeight">600dp</item>
+    </style>
+    
+    <style name="RoundedTabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">@drawable/tabs_selector</item>
+        <item name="tabIndicator">@null</item>
+        <item name="android:background">@drawable/tab_layout_bg</item>
+        <item name="tabSelectedTextColor">@color/primary</item>
+        <item name="tabTextColor">@color/white</item>
     </style>
 </resources>

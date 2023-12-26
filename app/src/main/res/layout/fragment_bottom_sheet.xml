@@ -21,7 +21,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="50sp"
             android:orientation="vertical"
             >
@@ -126,6 +126,7 @@
                         android:id="@+id/editCategory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light"
                         />
                 </LinearLayout>
             </LinearLayout>
@@ -137,7 +138,7 @@
                 android:fontFamily="@font/bold"
                 android:layout_marginTop="200sp"
                 android:text="Submit"
-                android:background="@drawable/border_button"
+                android:backgroundTint="@color/primary"
                 />
 
         </LinearLayout>
