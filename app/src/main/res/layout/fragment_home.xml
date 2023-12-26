@@ -35,10 +35,10 @@
             android:textSize="25sp" />
 
         <Button
-            android:layout_width="120dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/border_button"
+            android:outlineSpotShadowColor="@android:color/transparent"
             android:fontFamily="@font/bold"
             android:layout_marginTop="20sp"
             android:text="@string/reset" />
