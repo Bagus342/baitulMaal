@@ -8,7 +8,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.example.baitulmaal.fragments.BottomSheetFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
@@ -36,7 +35,10 @@ class MainActivity : AppCompatActivity() {
         bottom_nav.setupWithNavController(navController)
         bottom_nav.background = null
         bottom_nav.menu.getItem(1).isEnabled = false
-        showBottomSheet()
+
+        fab.setOnClickListener {
+            showBottomSheet()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -44,10 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showBottomSheet() {
-        showButton = findViewById(R.id.fab)
-        showButton.setOnClickListener {
-            bottomSheetFragment = BottomSheetFragment()
-            bottomSheetFragment.show(supportFragmentManager, "BSDialogFragment")
-        }
+        bottomSheetFragment = BottomSheetFragment()
+        bottomSheetFragment.show(supportFragmentManager, "BSDialogFragment")
     }
 }

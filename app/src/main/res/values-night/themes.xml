@@ -14,6 +14,11 @@
         <!-- Customize your theme here. -->
         <item name="bottomSheetDialogTheme">@style/AppBottomDialogTheme</item>
         <item name="bottomAppBarStyle">@style/AppBottomStyle</item>
+        <item name="spinnerStyle">@style/SpinnerStyle</item>
+    </style>
+
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="AppBottomStyle" parent="Widget.MaterialComponents.BottomAppBar">

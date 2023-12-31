@@ -46,6 +46,7 @@
         android:layout_below="@id/wrapPengeluaran"
         android:layout_marginTop="20sp"
         android:paddingHorizontal="25sp"
+        android:paddingBottom="35sp"
         />
 
 </RelativeLayout>
