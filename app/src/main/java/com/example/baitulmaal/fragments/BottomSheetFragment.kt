@@ -80,7 +80,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         }
         if (isUpdate) {
             header.text = "Update Data"
-            editIdr.setText(setFormatEdit(moneySaving))
+            editIdr.setText(moneySaving.toInt().toString())
             editCatatan.setText(noteSaving)
             deleteItem.setOnClickListener {
                 val savings = Savings(moneySaving, noteSaving, categorySaving, dateSaving, idSaving)
@@ -95,42 +95,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         submitButton.setOnClickListener {
             addData()
         }
-
-        editIdr.addTextChangedListener(object: TextWatcher {
-            var current = editIdr.text.toString().trim()
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int) {
-                if(!p0.toString().equals(current)) {
-                    editIdr.removeTextChangedListener(this)
-                    var replace = p0.toString().replace("[Rp. ]".toRegex(), "")
-                    if (!replace.isEmpty()) {
-                        current = setFormatEdit(replace.toDouble())
-                    } else {
-                        current = ""
-                    }
-                    moneySaving = replace.toDouble()
-                    editIdr.setText(current)
-                    editIdr.setSelection(current.length)
-                    editIdr.addTextChangedListener(this)
-                }
-            }
-
-            override fun afterTextChanged(p0: Editable) {
-            }
-
-        })
-    }
-
-    private fun setFormatEdit(number: Double): String {
-        var locale = Locale("IND", "ID")
-        var numberFormat: NumberFormat = NumberFormat.getCurrencyInstance(locale)
-        var formatIdr = numberFormat.format(number)
-        var split = formatIdr.split(",")
-        var length = split[0].length
-        return split[0].substring(0,2)+". "+split[0].substring(2, length)
     }
 
     fun setDataUpdate(item: Savings) {
@@ -149,14 +113,14 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
         if (money.isNotEmpty() && note.isNotEmpty()) {
             if (isUpdate) {
-                val updateSavings = Savings(moneySaving, note, category, dateSaving, idSaving)
+                val updateSavings = Savings(money.toDouble(), note, category, dateSaving, idSaving)
 
                 mSavingsViewModel.updateData(updateSavings)
 
                 Toast.makeText(activity, "Successfully updating data !", Toast.LENGTH_SHORT).show()
                 dismiss()
             } else {
-                val savings = Savings(moneySaving, note, category, getStringCurrentDate())
+                val savings = Savings(money.toDouble(), note, category, getStringCurrentDate())
 
                 mSavingsViewModel.addData(savings)
 
